@@ -10,7 +10,7 @@ To start the server, run:
 ### Frontend
 Assuming node.js is installed, and, assuming all commands to be in the frontend directory:
 1. Create an account at http://expo.dev if not already.
-2. Download the 'Expo Go' mobile app for running the app on your phone and log in.
+2. Download the 'Expo Go' mobile app and log in for running the app on your phone.
 3. Run `npm i`.
 4. Run `npx expo login -u [expo username] -p [expo password]` to log in to expo locally.
 5. Run `npm start`, scan the barcode outputted by the server, and open the link in the Expo Go mobile app.
