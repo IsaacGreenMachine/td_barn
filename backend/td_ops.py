@@ -3,6 +3,7 @@ from pathlib import Path
 from data.board import Game
 import json
 import pandas as pd
+import numpy as np
 
 games_df = pd.DataFrame(columns=["id", "join_code", "board"])
 
@@ -40,3 +41,13 @@ def get_game(id):
 
 def get_all_games():
     return games_df['id'].tolist()
+
+def parabola_from_3_points(p1, p2, p3):
+    # input is [[x1, y1], [x2, y2], [x3, y3]]
+    # returns a, b, c for parabola function
+    # y = ax^2 + bx + c
+    if (len(p1), len(p2), len(p3)) != (2, 2, 2):
+        raise ValueError("input points must be 2 long lists")
+    ys = np.asarray([p1[1], p2[1], p3[1]])
+    xs = np.asarray([[p1[0] ** 2, p1[0], 1], [p2[0] ** 2, p2[0], 1], [p3[0] ** 2, p3[0], 1]])
+    return np.linalg.solve(xs, ys)

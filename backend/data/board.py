@@ -32,6 +32,18 @@ class Board():
                 row.append(Empty(row, col))
             board.append(row)
 
+    def add_piece(self, piece, x, y):
+        if str(self.board[x][y]) != "Empty":
+            return -1
+        self.board[x][y] = piece
+        return 1
+
+    def delete_piece(self, x, y):
+        if str(self.board[x][y]) == "Empty":
+            return -1
+        self.board[x][y] = Empty()
+        return 1
+
     def to_json(self):
         json_board = []
         for row in range(self.board_size):
